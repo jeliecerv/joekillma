@@ -17,9 +17,11 @@ public class Chest : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
-        chestA.SetActive(true);
-        gameObject.SetActive(false);
-        other.gameObject.GetComponent<Soldier>().coins += 1;
-        Debug.Log(other.gameObject.GetComponent<Soldier>().coins);
+        if (other.gameObject.tag.Equals("Player"))
+        {
+            chestA.SetActive(true);
+            gameObject.SetActive(false);
+            other.gameObject.GetComponent<Motor>().coins += 1;
+        }
     }
 }

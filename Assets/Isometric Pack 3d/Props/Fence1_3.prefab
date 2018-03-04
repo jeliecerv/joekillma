@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3312590}
   - component: {fileID: 2327096}
   - component: {fileID: 6552544}
+  - component: {fileID: 208682678888553920}
   m_Layer: 0
   m_Name: Fence1_3
   m_TagString: Untagged
@@ -25,7 +26,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 150242}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 6.908, y: 3.0617516, z: -0.78518677}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -99,3 +100,18 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 150242}
   m_IsPrefabParent: 1
+--- !u!208 &208682678888553920
+NavMeshObstacle:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 150242}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.44300002, y: 0.365, z: 0.104}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: -0.011000001, y: 0.254, z: -0.019000001}
+  m_TimeToStationary: 0.5

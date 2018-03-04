@@ -4,4 +4,10 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/IntroGame.unity
+    guid: 10f58caab3fc64da9aa2de4d7971ca29
+  - enabled: 1
+    path: Assets/Isometric Pack 3d/Demo/Scene7.unity
+    guid: da3db4203b6d7594ebbb79fe941624ed

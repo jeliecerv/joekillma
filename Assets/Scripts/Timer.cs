@@ -17,7 +17,6 @@ public class Timer : MonoBehaviour {
 	void Update () {
         timeLeft -= Time.deltaTime;
         timer.text = Math.Round(timeLeft).ToString();
-        Debug.Log(timeLeft);
         if (timeLeft < 0)
         {
             Debug.Log("game Over");

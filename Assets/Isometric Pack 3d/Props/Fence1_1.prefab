@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3380046}
   - component: {fileID: 2365940}
   - component: {fileID: 6567916}
+  - component: {fileID: 208095902040213598}
   m_Layer: 0
   m_Name: Fence1_1
   m_TagString: Untagged
@@ -99,3 +100,18 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 138258}
   m_IsPrefabParent: 1
+--- !u!208 &208095902040213598
+NavMeshObstacle:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 138258}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.43800002, y: 0.365, z: 0.102000006}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: -0.09, y: 0.254, z: -0.016}
+  m_TimeToStationary: 0.5
