@@ -334,6 +334,7 @@
     <Compile Include="Assets\Scripts\Patrulla.cs" />
     <Compile Include="Assets\Scripts\Timer.cs" />
     <Compile Include="Assets\Scripts\TransformFollower.cs" />
+    <Compile Include="Assets\Scripts\WaterValidation.cs" />
     <Compile Include="Assets\Scripts\Win.cs" />
     <Compile Include="Assets\Yurowm\Demo\Scripts\Actions.cs" />
     <Compile Include="Assets\Yurowm\Demo\Scripts\CharacterPanel.cs" />

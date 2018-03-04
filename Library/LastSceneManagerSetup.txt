@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/IntroGame.unity
+- path: Assets/Isometric Pack 3d/Demo/Scene7.unity
   isLoaded: 1
   isActive: 1

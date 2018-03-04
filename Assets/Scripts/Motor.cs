@@ -12,6 +12,12 @@ public class Motor : MonoBehaviour
     public Text textCoins;
     public GameObject life;
     public GameObject final;
+    public AudioClip deathSound;
+    public AudioClip hitSound;
+    public AudioClip jumpSound;
+    public AudioClip walkSound;
+    public AudioClip runSound;
+    public AudioClip attackSound;
     [HideInInspector]
     public int coins = 0;
 
@@ -24,6 +30,15 @@ public class Motor : MonoBehaviour
     private Vector3 moveVector;
     private Vector3 _velocity;
     private int _life = 9;
+    private AudioSource source;
+    private bool _isSound = false;
+    private bool _isWalk = false;
+    private bool _isRun = false;
+
+    void Awake()
+    {
+        source = GetComponent<AudioSource>();
+    }
 
     // Use this for initialization
     void Start()
@@ -95,6 +110,7 @@ public class Motor : MonoBehaviour
         }
 
         UpdateCoinsCanvas();
+        CheckInMap();
     }
 
     public void Stay()
@@ -107,23 +123,39 @@ public class Motor : MonoBehaviour
     {
         anim.SetBool("Aiming", false);
         anim.SetFloat("Speed", 0.5f);
+        if (!_isWalk)
+        {
+            source.PlayOneShot(walkSound, 1f);
+            StartCoroutine(WaitWalk());
+        }
     }
 
     public void Run()
     {
         anim.SetBool("Aiming", false);
         anim.SetFloat("Speed", 1f);
+        if (!_isRun)
+        {
+            source.PlayOneShot(runSound, 1f);
+            StartCoroutine(WaitRun());
+        }
     }
 
     public void Attack()
     {
         Aiming();
         anim.SetTrigger("Attack");
+        source.PlayOneShot(attackSound, 1f);
     }
 
     public void Death()
     {
         anim.SetTrigger("Death");
+        if(!_isSound)
+        {
+            source.PlayOneShot(deathSound, 1f);
+            _isSound = !_isSound;
+        }
     }
 
     public void Damage()
@@ -147,6 +179,7 @@ public class Motor : MonoBehaviour
                 final.GetComponent<Final>().LostImage();
             }
         }
+        source.PlayOneShot(hitSound, 1f);
     }
 
     public void Jump()
@@ -157,6 +190,7 @@ public class Motor : MonoBehaviour
             anim.SetFloat("Speed", 0f);
             anim.SetBool("Aiming", false);
             anim.SetTrigger("Jump");
+            source.PlayOneShot(jumpSound, 1f);
         }
     }
 
@@ -184,4 +218,33 @@ public class Motor : MonoBehaviour
         final.GetComponent<Final>().WinImage();
         this.enabled = false;
     }
+
+    public void CheckInMap()
+    {
+        if (transform.position.y < -5)
+        {
+            ResetPosition();
+        }
+    }
+
+    public void ResetPosition()
+    {
+        Damage();
+        transform.position = new Vector3(-3.9f, 1.1f, -11.6f);
+    }
+
+    IEnumerator WaitWalk()
+    {
+        _isWalk = true;
+        yield return new WaitForSeconds(0.7f);
+        _isWalk = false;
+    }
+
+    IEnumerator WaitRun()
+    {
+        _isRun = true;
+        yield return new WaitForSeconds(0.750f);
+        _isRun = false;
+    }
 }
+

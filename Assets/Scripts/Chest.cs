@@ -5,8 +5,16 @@ using UnityEngine;
 public class Chest : MonoBehaviour {
 
     public GameObject chestA;
-	// Use this for initialization
-	void Start () {
+    public AudioClip coinSound;
+    private AudioSource source;
+
+    void Awake()
+    {
+        source = GetComponent<AudioSource>();
+    }
+
+    // Use this for initialization
+    void Start () {
 		
 	}
 	
@@ -19,9 +27,17 @@ public class Chest : MonoBehaviour {
     {
         if (other.gameObject.tag.Equals("Player"))
         {
+            
             chestA.SetActive(true);
-            gameObject.SetActive(false);
+            StartCoroutine(WaitGetCoin());
             other.gameObject.GetComponent<Motor>().coins += 1;
         }
+    }
+
+    IEnumerator WaitGetCoin()
+    {
+        source.PlayOneShot(coinSound, 1f);
+        yield return new WaitForSeconds(0.3f);
+        gameObject.SetActive(false);
     }
 }
