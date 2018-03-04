@@ -1059,7 +1059,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09304c0e6a4e8304fa1624c594b81d1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeLeft: 120
   timer: {fileID: 549051129}
+  stopTimer: 0
+  motor: {fileID: 820123378}
 --- !u!114 &88252639
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4892,6 +4895,46 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a5bf50f8fc223644e9d24bc78b18c3e5, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &418961732
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 418961734}
+  - component: {fileID: 418961733}
+  m_Layer: 0
+  m_Name: GameScript
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &418961733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 418961732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a13ff2e432ff44b67a7bd85dc3752bfc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &418961734
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 418961732}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 605.2359, y: 503.30933, z: -5.661364}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 399
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &429744836 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 105004, guid: fafb22938e56e894cb5afedc4d16aeae, type: 2}
@@ -9278,9 +9321,25 @@ Prefab:
       propertyPath: attackSound
       value: 
       objectReference: {fileID: 8300000, guid: c9ccf6cbea8ec0a479e28ccb1f474e5e, type: 3}
+    - target: {fileID: 114190631066850240, guid: 783874c814abd43dda5021d92e98572f,
+        type: 2}
+      propertyPath: gameScript
+      value: 
+      objectReference: {fileID: 418961733}
+    - target: {fileID: 114190631066850240, guid: 783874c814abd43dda5021d92e98572f,
+        type: 2}
+      propertyPath: timer
+      value: 
+      objectReference: {fileID: 88252638}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 783874c814abd43dda5021d92e98572f, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &820123378 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114190631066850240, guid: 783874c814abd43dda5021d92e98572f,
+    type: 2}
+  m_PrefabInternal: {fileID: 820123377}
+  m_Script: {fileID: 11500000, guid: 24cad5a4a10f04daa9c77c6656a7bc0a, type: 3}
 --- !u!1 &826215522 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 105004, guid: fafb22938e56e894cb5afedc4d16aeae, type: 2}

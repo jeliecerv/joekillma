@@ -285,8 +285,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Caminar.cs" />
-    <Compile Include="Assets\GameScript.cs" />
     <Compile Include="Assets\Isometric Pack 3d\Standard Assets\Effects\ImageEffects\Scripts\Antialiasing.cs" />
     <Compile Include="Assets\Isometric Pack 3d\Standard Assets\Effects\ImageEffects\Scripts\Bloom.cs" />
     <Compile Include="Assets\Isometric Pack 3d\Standard Assets\Effects\ImageEffects\Scripts\BloomAndFlares.cs" />
@@ -329,9 +327,12 @@
     <Compile Include="Assets\Scripts\Chest.cs" />
     <Compile Include="Assets\Scripts\CubeManager.cs" />
     <Compile Include="Assets\Scripts\Final.cs" />
+    <Compile Include="Assets\Scripts\GameScript.cs" />
     <Compile Include="Assets\Scripts\LifeManager.cs" />
     <Compile Include="Assets\Scripts\Motor.cs" />
     <Compile Include="Assets\Scripts\Patrulla.cs" />
+    <Compile Include="Assets\Scripts\Score.cs" />
+    <Compile Include="Assets\Scripts\ScoreScript.cs" />
     <Compile Include="Assets\Scripts\Timer.cs" />
     <Compile Include="Assets\Scripts\TransformFollower.cs" />
     <Compile Include="Assets\Scripts\WaterValidation.cs" />

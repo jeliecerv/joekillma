@@ -11,3 +11,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Isometric Pack 3d/Demo/Scene7.unity
     guid: da3db4203b6d7594ebbb79fe941624ed
+  - enabled: 1
+    path: Assets/ScoreGame.unity
+    guid: 2b4c3434d80a54db88969df5add24158

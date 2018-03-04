@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -18,6 +19,8 @@ public class Motor : MonoBehaviour
     public AudioClip walkSound;
     public AudioClip runSound;
     public AudioClip attackSound;
+    public GameScript gameScript;
+    public Timer timer;
     [HideInInspector]
     public int coins = 0;
 
@@ -34,6 +37,7 @@ public class Motor : MonoBehaviour
     private bool _isSound = false;
     private bool _isWalk = false;
     private bool _isRun = false;
+    
 
     void Awake()
     {
@@ -161,10 +165,10 @@ public class Motor : MonoBehaviour
     public void Damage()
     {
         if (anim.GetCurrentAnimatorStateInfo(0).IsName("Death")) return;
-        int id = Random.Range(0, countOfDamageAnimations);
+        int id = UnityEngine.Random.Range(0, countOfDamageAnimations);
         if (countOfDamageAnimations > 1)
             while (id == lastDamageAnimation)
-                id = Random.Range(0, countOfDamageAnimations);
+                id = UnityEngine.Random.Range(0, countOfDamageAnimations);
         lastDamageAnimation = id;
         anim.SetInteger("DamageID", id);
         anim.SetTrigger("Damage");
@@ -175,8 +179,9 @@ public class Motor : MonoBehaviour
             _life -= 1;
             if(_life < 0)
             {
-                final.GetComponent<Image>().enabled = true;
-                final.GetComponent<Final>().LostImage();
+                //final.GetComponent<Image>().enabled = true;
+                //final.GetComponent<Final>().LostImage();
+                ScoreCalculation();
             }
         }
         source.PlayOneShot(hitSound, 1f);
@@ -214,9 +219,11 @@ public class Motor : MonoBehaviour
 
     public void YouWin()
     {
-        final.GetComponent<Image>().enabled = true;
-        final.GetComponent<Final>().WinImage();
-        this.enabled = false;
+        //final.GetComponent<Image>().enabled = true;
+        //final.GetComponent<Final>().WinImage();
+        //this.enabled = false;
+        ScoreCalculation();
+        
     }
 
     public void CheckInMap()
@@ -245,6 +252,13 @@ public class Motor : MonoBehaviour
         _isRun = true;
         yield return new WaitForSeconds(0.750f);
         _isRun = false;
+    }
+
+    public void ScoreCalculation()
+    {
+        timer.StopTimer();
+        Score.score = _life * 15 + coins * 10 + (int) Math.Round(timer.timeLeft) * 5;
+        gameScript.StartGameBtn("ScoreGame");
     }
 }
 

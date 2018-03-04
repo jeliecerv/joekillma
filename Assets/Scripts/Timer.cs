@@ -5,8 +5,10 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Timer : MonoBehaviour {
-    private float timeLeft = 120.0f;
+    public float timeLeft = 120.0f;
     public Text timer;
+    public bool stopTimer = false;
+    public Motor motor;
 
     // Use this for initialization
     void Start () {
@@ -15,11 +17,20 @@ public class Timer : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        timeLeft -= Time.deltaTime;
-        timer.text = Math.Round(timeLeft).ToString();
-        if (timeLeft < 0)
+        if (!stopTimer)
         {
-            Debug.Log("game Over");
+            timeLeft -= Time.deltaTime;
+            timer.text = Math.Round(timeLeft).ToString();
+            if (timeLeft < 0)
+            {
+                stopTimer = !stopTimer;
+                motor.ScoreCalculation();
+            }
         }
+    }
+
+    public void StopTimer()
+    {
+        stopTimer = !stopTimer;
     }
 }
